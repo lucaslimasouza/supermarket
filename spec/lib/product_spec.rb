@@ -8,4 +8,10 @@ RSpec.describe Product do
       expect(subject.code).to eq '001'
     end
   end
+
+  describe '#price' do
+    it 'return the price' do
+      expect(subject.price).to eq 195
+    end
+  end
 end
