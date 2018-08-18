@@ -1,9 +1,14 @@
+require 'rules/operators'
+
 class ProductDiscount
+  include Operators
+
   def initialize(code:, qty:, discount:, operator:)
     @code = code
     @qty = qty
     @discount = discount
     @operator = operator
+    validates(@operator)
   end
 
   def apply(order)

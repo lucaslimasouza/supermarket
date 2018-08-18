@@ -1,8 +1,13 @@
+require 'rules/operators'
+
 class TotalPercentageDiscount
+  include Operators
+
   def initialize(threshold:, discount:, operator:)
     @threshold = threshold
     @discount = discount
     @operator = operator
+    validates(@operator)
   end
 
   def apply(order)
