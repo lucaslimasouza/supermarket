@@ -9,7 +9,7 @@ class ProductDiscount
   def apply(order)
     product_checkout = order[@code]
     if is_valid_rule?(product_checkout)
-      order[:total] -= product_checkout[:qty] * @discount
+      order[:total] -= (product_checkout[:qty] * @discount).round(2)
     end
     order
   end

@@ -5,7 +5,7 @@ RSpec.describe ProductDiscount do
     ProductDiscount.new(
       code: '002',
       qty: 2,
-      discount: 200,
+      discount: 2,
       operator: '>='
     )
   end
@@ -14,14 +14,14 @@ RSpec.describe ProductDiscount do
     context 'buy two or more product then the price drops' do
       it 'return an order with new total value' do
         order = {
-          '001' => { qty: 1, price: 195 },
-          '002' => { qty: 2, price: 599 },
-          total: 1393
+          '001' => { qty: 1, price: 1.95 },
+          '002' => { qty: 2, price: 5.99 },
+          total: 13.93
         }
 
         order_with_discount = subject.apply order
 
-        expect(order_with_discount[:total]).to eq 993
+        expect(order_with_discount[:total]).to eq 9.93
       end
     end
   end
