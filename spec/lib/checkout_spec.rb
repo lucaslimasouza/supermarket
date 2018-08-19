@@ -33,5 +33,21 @@ RSpec.describe Checkout do
         expect(subject.total).to eq 29.65
       end
     end
+
+    context 'with product discount' do
+      let!(:product_discount) do
+        instance_double('ProductDiscount', apply: { total: 9.93 })
+      end
+      let!(:promotional_rules) { [product_discount] }
+      subject(:checkout) { Checkout.new(promotional_rules) }
+
+      it 'return total with discount' do
+        subject.scan(pizza)
+        subject.scan(curry_sauce)
+        subject.scan(pizza)
+
+        expect(subject.total).to eq 9.93
+      end
+    end
   end
 end
