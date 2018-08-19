@@ -1,5 +1,6 @@
 class Checkout
-  def initialize
+  def initialize(promotional_rules)
+    @promotional_rules = promotional_rules
     @order = { total: 0 }
   end
 
@@ -13,6 +14,9 @@ class Checkout
   end
 
   def total
+    unless @promotional_rules.empty?
+      @promotional_rules.each { |rule| @order = rule.apply(@order) }
+    end
     @order[:total]
   end
 end
