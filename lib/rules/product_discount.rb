@@ -1,4 +1,4 @@
-require 'rules/operators'
+require_relative 'operators'
 
 class ProductDiscount
   include Operators

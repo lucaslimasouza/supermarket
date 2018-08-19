@@ -17,6 +17,6 @@ class Checkout
     unless @promotional_rules.empty?
       @promotional_rules.each { |rule| @order = rule.apply(@order) }
     end
-    @order[:total]
+    @order[:total].round(2)
   end
 end
