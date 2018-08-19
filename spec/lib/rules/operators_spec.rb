@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'rules/operators'
 
 RSpec.describe Operators do

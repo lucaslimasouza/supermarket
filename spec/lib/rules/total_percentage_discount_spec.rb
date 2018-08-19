@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'rules/total_percentage_discount'
 
 RSpec.describe TotalPercentageDiscount do
